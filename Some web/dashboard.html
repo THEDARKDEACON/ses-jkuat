@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SES JKUAT</title>
+    <meta name="description" content="Manage content and settings for the SES JKUAT website">
+    <meta name="keywords" content="SES JKUAT, dashboard, content management, admin panel">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Quill Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="SES JKUAT Logo" class="sidebar-logo">
+                <h2>SES JKUAT</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#overview">
+                            <i class="fas fa-home"></i>
+                            Overview
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#posts">
+                            <i class="fas fa-newspaper"></i>
+                            Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#events">
+                            <i class="fas fa-calendar-alt"></i>
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#gallery">
+                            <i class="fas fa-images"></i>
+                            Gallery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#members">
+                            <i class="fas fa-users"></i>
+                            Members
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Site
+                </a>
+                <a href="#" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    
+                    <div class="user-menu">
+                        <img src="assets/images/avatar.jpg" alt="User Avatar" class="user-avatar">
+                        <span class="user-name">Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Posts</h3>
+                            <span class="number">24</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Upcoming Events</h3>
+                            <span class="number">5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Members</h3>
+                            <span class="number">150</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Gallery Items</h3>
+                            <span class="number">48</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Recent Posts -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Posts</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="post-list">
+                                <div class="post-item">
+                                    <img src="assets/images/news/featured1.jpg" alt="Post Image">
+                                    <div class="post-info">
+                                        <h4>Annual Engineering Symposium 2024</h4>
+                                        <p>Events</p>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="edit-btn" title="Edit post">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="delete-btn" title="Delete post">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="post-item">
+                                    <img src="assets/images/news/technical1.jpg" alt="Post Image">
+                                    <div class="post-info">
+                                        <h4>New CAD Workshop Series</h4>
+                                        <p>Technical</p>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="edit-btn" title="Edit post">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="delete-btn" title="Delete post">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Upcoming Events</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="event-list">
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="day">15</span>
+                                        <span class="month">Mar</span>
+                                    </div>
+                                    <div class="event-info">
+                                        <h4>Career Fair 2024</h4>
+                                        <p>Main Auditorium, 9:00 AM</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="day">20</span>
+                                        <span class="month">Mar</span>
+                                    </div>
+                                    <div class="event-info">
+                                        <h4>Programming Workshop</h4>
+                                        <p>Computer Lab 3, 2:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Posts Section -->
+            <section id="posts" class="dashboard-section">
+                <div class="dashboard-header">
+                    <h2>Posts</h2>
+                    <button class="new-post-btn">
+                        <i class="fas fa-plus"></i>
+                        New Post
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-content">
+                        <div class="post-list">
+                            <!-- Posts will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Other sections will be added here -->
+        </main>
+    </div>
+
+    <!-- New Post Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Post</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-category">Category</label>
+                        <select id="post-category" required>
+                            <option value="">Select Category</option>
+                            <option value="Events">Events</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Achievements">Achievements</option>
+                            <option value="Announcements">Announcements</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="featured-image">Featured Image</label>
+                        <input type="file" id="featured-image" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editor">Content</label>
+                        <div id="editor"></div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="save-draft">Save Draft</button>
+                        <button type="submit" class="publish">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html> 

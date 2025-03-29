@@ -1,0 +1,112 @@
+*//////////////////////////////////////////////////////////////////////
+* (C) National Semiconductor, Inc.
+* Models developed and under copyright by:
+* National Semiconductor, Inc.  
+
+*/////////////////////////////////////////////////////////////////////
+* Legal Notice: This material is intended for free software support.
+* The file may be copied, and distributed; however, reselling the 
+* material is illegal
+
+*/////////////////////////////////////////////////////////////////////
+* For ordering or technical information on these models, contact:
+* National Semiconductor's Customer Response Center
+*                 7:00 A.M.--7:00 P.M.  U.S. Central Time
+*                                (800) 272-9959
+* For Applications support, contact the Internet address:
+*  amps-apps@galaxy.nsc.com
+
+*//////////////////////////////////////////////////////////
+*LM741 OPERATIONAL AMPLIFIER MACRO-MODEL
+*//////////////////////////////////////////////////////////
+*
+* connections:      IC1 ON1
+*                   |   Inverting Input
+*                   |   |   Non-Inverting Input
+*                   |   |   |   Vcc+
+*                   |   |   |   |   IC1 ON2
+*                   |   |   |   |   |   Output
+*                   |   |   |   |   |   |   Vcc-
+*                   |   |   |   |   |   |   |
+*                   |   |   |   |   |   |   |
+.SUBCKT LM741       1   2   3   4   5   6   7   8
+*
+*Features:
+*Improved performance over industry standards
+*Plug-in replacement for LM709, LM201, MC1439, 748
+*Input and output overload protection
+*
+****************INPUT STAGE**************
+*
+IOS 2 3 20N
+*^Input offset current
+R1 3 9 250K
+R2 9 2 250K
+I1 10 5 100U
+R3 11 8 517
+R4 12 8 517
+Q1 11 3 10 QX
+Q2 12 13 10 QX
+*Fp2=2.55 MHz
+C4 11 12 60.3614P
+*
+***********COMMON MODE EFFECT***********
+*
+I2 8 5 1.6MA
+*^Quiescent supply current
+EOS 13 2 POLY(1) 16 5 1E-3 1
+*Input offset voltage.^
+R8 8 16 40K
+R9 16 5 40K
+*
+*********OUTPUT VOLTAGE LIMITING********
+V2 8 14 1.63
+D1 15 14 DX
+D2 16 15 DX
+V3 16 5 1.63
+*
+**************SECOND STAGE**************
+*
+EH 8 17 8 16 1
+G1 17 15 11 12 2.1E-3
+*Fp1=5 Hz
+R5 17 15 95.493MEG
+C3 17 15 333.33P
+*
+***************POLE STAGE***************
+*
+*Fp=30 MHz
+G3 17 18 15 16 1E-6
+R12 17 18 1MEG
+C5 17 18 5.3052E-15
+*
+*********COMMON-MODE ZERO STAGE*********
+*
+*Fpcm=300 Hz
+G4 17 19 9 16 3.1623E-8
+L2 17 20 530.5M
+R13 20 19 1K
+*
+**************OUTPUT STAGE**************
+*
+F6 5 8 POLY(1) V6 450U 1
+E1 8 21 8 18 1
+R16 22 21 25
+D5 23 22 DX
+V6 23 20 0.65V
+R17 21 25 25
+D6 25 24 DX
+V7 20 24 0.65V
+V5 20 19 0.18V
+D4 19 18 DX
+V4 17 20 0.18V
+D3 18 17 DX
+L3 20 6 100P
+RL3 20 6 100K
+*
+***************MODELS USED**************
+*
+.MODEL DX D(IS=1E-15)
+.MODEL QX NPN(BF=625)
+*
+.ENDS

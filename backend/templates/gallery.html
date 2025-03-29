@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - SES JKUAT{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Gallery</h1>
+        <p>Explore our moments and achievements through pictures</p>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="container">
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="projects">Projects</button>
+            <button class="filter-btn" data-filter="activities">Activities</button>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Sample gallery items - Replace with dynamic content -->
+            <div class="gallery-item" data-category="events">
+                <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="Event Image" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Event Title</h3>
+                    <p>Event description goes here</p>
+                </div>
+            </div>
+            <!-- Add more gallery items here -->
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %} 

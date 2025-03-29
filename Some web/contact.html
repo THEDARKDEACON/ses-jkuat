@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact SES JKUAT - Get in touch with the Society of Engineering Students">
+    <meta name="keywords" content="contact SES JKUAT, engineering students contact, JKUAT contact">
+    <meta name="author" content="SES JKUAT">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <title>Contact Us | SES JKUAT</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Floating Sidebar -->
+    <div class="floating-sidebar">
+        <div class="sidebar-links">
+            <a href="#" data-tooltip="Back to Top"><i class="fas fa-arrow-up"></i></a>
+            <a href="#contact-form" data-tooltip="Contact Form"><i class="fas fa-envelope"></i></a>
+            <a href="#office-locations" data-tooltip="Our Offices"><i class="fas fa-map-marker-alt"></i></a>
+            <a href="index.html" data-tooltip="Home"><i class="fas fa-home"></i></a>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="SES JKUAT Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Activities</a></li>
+                    <li><a href="portfolio.html">Gallery</a></li>
+                    <li><a href="blog.html">News</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Have questions? We'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Visit Us</h3>
+                        <p>JKUAT Main Campus<br>Juja, Kenya</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>info@sesjkuat.org<br>support@sesjkuat.org</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+254 700 000 000<br>+254 733 000 000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <div class="container">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm" data-endpoint="contact" data-redirect="/">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Send Message</span>
+                        <div class="loading-spinner"></div>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="map">
+            <div class="container">
+                <h2>Find Us</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7176650759087!2d37.01280661475455!3d-1.0917377992714213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4e5b27c66117%3A0xb6f8a7e126e5c4f9!2sJomo%20Kenyatta%20University%20of%20Agriculture%20and%20Technology!5e0!3m2!1sen!2ske!4v1645438267890!5m2!1sen!2ske" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About SES JKUAT</h4>
+                    <p>Established in 1994, SES JKUAT is a body for engineering students who desire to discover what lies beyond books.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Activities</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SES JKUAT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

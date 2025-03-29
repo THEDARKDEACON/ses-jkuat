@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="profile-page">
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-cover"></div>
+            <div class="profile-avatar">
+                {% if current_user.avatar %}
+                <img src="{{ url_for('static', filename='uploads/' + current_user.avatar) }}" alt="{{ current_user.name }}">
+                {% else %}
+                <div class="avatar-placeholder">
+                    {{ current_user.name[:1].upper() }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="profile-info">
+                <h1>{{ current_user.name }}</h1>
+                <p class="profile-email">{{ current_user.email }}</p>
+                <p class="profile-joined">Member since {{ current_user.created_at.strftime('%B %Y') }}</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>Edit Profile</h2>
+                <form method="POST" action="{{ url_for('auth.update_profile') }}" enctype="multipart/form-data" class="profile-form">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        {{ form.name(class="form-control", value=current_user.name) }}
+                        {% if form.name.errors %}
+                        <div class="error-message">
+                            {% for error in form.name.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        {{ form.email(class="form-control", value=current_user.email) }}
+                        {% if form.email.errors %}
+                        <div class="error-message">
+                            {% for error in form.email.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avatar">Profile Picture</label>
+                        {{ form.avatar(class="form-control-file") }}
+                        {% if form.avatar.errors %}
+                        <div class="error-message">
+                            {% for error in form.avatar.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        {{ form.bio(class="form-control", rows="4") }}
+                        {% if form.bio.errors %}
+                        <div class="error-message">
+                            {% for error in form.bio.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+
+            <div class="profile-section">
+                <h2>Change Password</h2>
+                <form method="POST" action="{{ url_for('auth.change_password') }}" class="password-form">
+                    {{ password_form.csrf_token }}
+                    <div class="form-group">
+                        <label for="current_password">Current Password</label>
+                        {{ password_form.current_password(class="form-control") }}
+                        {% if password_form.current_password.errors %}
+                        <div class="error-message">
+                            {% for error in password_form.current_password.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new_password">New Password</label>
+                        {{ password_form.new_password(class="form-control") }}
+                        {% if password_form.new_password.errors %}
+                        <div class="error-message">
+                            {% for error in password_form.new_password.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm New Password</label>
+                        {{ password_form.confirm_password(class="form-control") }}
+                        {% if password_form.confirm_password.errors %}
+                        <div class="error-message">
+                            {% for error in password_form.confirm_password.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+            </div>
+
+            <div class="profile-section danger-zone">
+                <h2>Danger Zone</h2>
+                <div class="danger-zone-content">
+                    <div class="danger-action">
+                        <div>
+                            <h3>Delete Account</h3>
+                            <p>Once you delete your account, there is no going back. Please be certain.</p>
+                        </div>
+                        <button type="button" class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.profile-page {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 64px);
+}
+
+.profile-header {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.profile-cover {
+    height: 200px;
+    background: linear-gradient(45deg, #4a90e2, #357abd);
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    left: 2rem;
+    top: 120px;
+    overflow: hidden;
+    background: white;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #4a90e2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.profile-info {
+    padding: 5rem 2rem 2rem;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.profile-email {
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.profile-joined {
+    color: #999;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.profile-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.profile-section h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.25rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.form-control-file {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.danger-zone {
+    grid-column: 1 / -1;
+    border: 1px solid #dc3545;
+}
+
+.danger-zone h2 {
+    color: #dc3545;
+}
+
+.danger-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #fff5f5;
+    border-radius: 5px;
+}
+
+.danger-action h3 {
+    margin: 0 0 0.5rem;
+    color: #dc3545;
+}
+
+.danger-action p {
+    margin: 0;
+    color: #666;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        top: 140px;
+    }
+
+    .profile-info {
+        padding-top: 4rem;
+    }
+
+    .danger-action {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    if (deleteAccountBtn) {
+        deleteAccountBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                fetch("{{ url_for('auth.delete_account') }}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token() }}'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = "{{ url_for('main.index') }}";
+                    } else {
+                        alert(data.message || 'An error occurred while deleting your account.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting your account.');
+                });
+            }
+        });
+    }
+
+    // Preview avatar image before upload
+    const avatarInput = document.querySelector('input[type="file"]');
+    if (avatarInput) {
+        avatarInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const avatar = document.querySelector('.profile-avatar img');
+                    if (avatar) {
+                        avatar.src = e.target.result;
+                    } else {
+                        const placeholder = document.querySelector('.avatar-placeholder');
+                        if (placeholder) {
+                            placeholder.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+                        }
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});
+</script>
+{% endblock %} 

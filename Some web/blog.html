@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SES JKUAT News - Stay updated with the latest engineering events and achievements">
+    <meta name="keywords" content="SES JKUAT news, engineering events, student achievements, technical updates">
+    <meta name="author" content="SES JKUAT">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <title>News | SES JKUAT</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Floating Sidebar -->
+    <div class="floating-sidebar">
+        <div class="sidebar-links">
+            <a href="#" data-tooltip="Back to Top"><i class="fas fa-arrow-up"></i></a>
+            <a href="#news" data-tooltip="News"><i class="fas fa-newspaper"></i></a>
+            <a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/company/ses-jkuat" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <header class="glass-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="SES JKUAT Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Activities</a></li>
+                    <li><a href="portfolio.html">Gallery</a></li>
+                    <li><a href="blog.html" class="active">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="nav-button">Login</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="news-hero">
+            <div class="container">
+                <h1 class="gradient-text" data-aos="fade-up">Latest News</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Stay updated with the latest happenings in SES JKUAT</p>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <div class="container">
+                <div class="news-filters" data-aos="fade-up">
+                    <button class="filter-btn active" data-filter="all">All News</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="achievements">Achievements</button>
+                    <button class="filter-btn" data-filter="technical">Technical</button>
+                    <button class="filter-btn" data-filter="announcements">Announcements</button>
+                </div>
+
+                <div class="news-grid">
+                    <!-- Featured News -->
+                    <article class="news-item featured" data-category="events" data-aos="fade-up">
+                        <div class="news-image">
+                            <img src="assets/images/news/featured1.jpg" alt="Annual Engineering Symposium 2024">
+                            <div class="news-category">Events</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>Annual Engineering Symposium 2024: A Resounding Success</h2>
+                            <p>The 2024 Annual Engineering Symposium brought together industry experts, students, and faculty members for an inspiring day of knowledge sharing and networking.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Regular News Items -->
+                    <article class="news-item" data-category="achievements" data-aos="fade-up" data-aos-delay="100">
+                        <div class="news-image">
+                            <img src="assets/images/news/achievement1.jpg" alt="Robotics Competition">
+                            <div class="news-category">Achievements</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> March 10, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>SES JKUAT Team Wins National Robotics Competition</h2>
+                            <p>Our robotics team emerged victorious at the National Engineering Students' Robotics Competition, showcasing innovative solutions.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-item" data-category="technical" data-aos="fade-up" data-aos-delay="200">
+                        <div class="news-image">
+                            <img src="assets/images/news/technical1.jpg" alt="AI Workshop">
+                            <div class="news-category">Technical</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> March 5, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>New AI Workshop Series Launched</h2>
+                            <p>SES JKUAT introduces a comprehensive AI workshop series to help students stay ahead in the rapidly evolving tech landscape.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-item" data-category="announcements" data-aos="fade-up" data-aos-delay="300">
+                        <div class="news-image">
+                            <img src="assets/images/news/announcement1.jpg" alt="Membership Drive">
+                            <div class="news-category">Announcements</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> March 1, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>2024 Membership Drive Now Open</h2>
+                            <p>Join SES JKUAT for the 2024 academic year and unlock a world of opportunities in engineering excellence.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-item" data-category="events" data-aos="fade-up" data-aos-delay="400">
+                        <div class="news-image">
+                            <img src="assets/images/news/event1.jpg" alt="Career Fair">
+                            <div class="news-category">Events</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> February 28, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>Engineering Career Fair 2024</h2>
+                            <p>Connect with leading companies and explore career opportunities at our annual Engineering Career Fair.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-item" data-category="technical" data-aos="fade-up" data-aos-delay="500">
+                        <div class="news-image">
+                            <img src="assets/images/news/technical2.jpg" alt="3D Printing Workshop">
+                            <div class="news-category">Technical</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="date"><i class="far fa-calendar"></i> February 25, 2024</span>
+                                <span class="author"><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h2>Advanced 3D Printing Workshop</h2>
+                            <p>Learn the latest techniques in 3D printing and additive manufacturing in our hands-on workshop series.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="load-more" data-aos="fade-up">
+                    <button class="primary-button">Load More News</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content" data-aos="fade-up">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive the latest news and updates directly in your inbox.</p>
+                    <form class="newsletter-form" data-endpoint="subscribe">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="primary-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About SES JKUAT</h4>
+                    <p>The Society of Engineering Students at JKUAT is committed to nurturing the next generation of innovative engineers through practical learning, leadership development, and community service.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Activities</a></li>
+                        <li><a href="portfolio.html">Gallery</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="register.html">Join Us</a></li>
+                        <li><a href="login.html">Member Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> JKUAT Main Campus, Juja</li>
+                        <li><i class="fas fa-envelope"></i> info@sesjkuat.org</li>
+                        <li><i class="fas fa-phone"></i> +254 700 000 000</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/SESJKUAT/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/ses_jkuat" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/ses_jkuat/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/ses-jkuat" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SES JKUAT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

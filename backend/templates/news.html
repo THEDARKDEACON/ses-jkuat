@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}News - SES JKUAT{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>News</h1>
+        <p>Stay informed with the latest updates and announcements</p>
+    </div>
+</section>
+
+<section class="news-section">
+    <div class="container">
+        {% if news %}
+            <div class="news-grid">
+                {% for post in news %}
+                <div class="news-card">
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + post.image) }}" alt="{{ post.title }}" loading="lazy">
+                    {% endif %}
+                    <div class="news-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content|truncate(150) }}</p>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar"></i> {{ post.created_at.strftime('%B %d, %Y') }}</span>
+                            <a href="{{ url_for('news_detail', id=post.id) }}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-content">
+                <p>No news articles available at the moment.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %} 

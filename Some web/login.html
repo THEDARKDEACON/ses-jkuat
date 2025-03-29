@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to SES JKUAT - Access your engineering student account">
+    <meta name="keywords" content="login SES JKUAT, engineering society login, JKUAT student login">
+    <title>Login | SES JKUAT</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="SES JKUAT Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Activities</a></li>
+                    <li><a href="portfolio.html">Gallery</a></li>
+                    <li><a href="blog.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-hero">
+            <div class="container">
+                <h1>Welcome Back</h1>
+                <p>Sign in to access your SES JKUAT account</p>
+            </div>
+        </section>
+
+        <section class="auth-form">
+            <div class="container">
+                <div class="form-container">
+                    <h2>Sign In</h2>
+                    <form id="loginForm" data-endpoint="login" data-redirect="/dashboard.html">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="password" name="password" required>
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="flex-between">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="remember">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <span class="button-text">Sign In</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+                    </form>
+                    
+                    <div class="auth-links">
+                        <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About SES JKUAT</h4>
+                    <p>Established in 1994, SES JKUAT is a body for engineering students who desire to discover what lies beyond books.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Activities</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SES JKUAT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

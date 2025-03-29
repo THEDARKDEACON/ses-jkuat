@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }} - SES JKUAT{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ event.title }}</h1>
+        <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> {{ event.location }}</span>
+            <span><i class="far fa-calendar"></i> {{ event.date.strftime('%B %d, %Y') }}</span>
+            <span><i class="far fa-clock"></i> {{ event.date.strftime('%I:%M %p') }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="event-detail-section">
+    <div class="container">
+        <div class="event-content">
+            {% if event.image %}
+            <div class="event-image">
+                <img src="{{ url_for('static', filename='uploads/' + event.image) }}" alt="{{ event.title }}">
+            </div>
+            {% endif %}
+            
+            <div class="event-description">
+                <h2>Event Details</h2>
+                {{ event.description|safe }}
+            </div>
+
+            {% if event.registration_link %}
+            <div class="event-registration">
+                <h2>Registration</h2>
+                <p>Don't miss out on this exciting event! Register now to secure your spot.</p>
+                <a href="{{ event.registration_link }}" class="cta-button" target="_blank">Register Now</a>
+            </div>
+            {% endif %}
+
+            <div class="event-share">
+                <h2>Share This Event</h2>
+                <div class="social-share">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url|urlencode }}" target="_blank" class="share-btn facebook">
+                        <i class="fab fa-facebook"></i> Share
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.url|urlencode }}&text={{ event.title|urlencode }}" target="_blank" class="share-btn twitter">
+                        <i class="fab fa-twitter"></i> Tweet
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url|urlencode }}&title={{ event.title|urlencode }}" target="_blank" class="share-btn linkedin">
+                        <i class="fab fa-linkedin"></i> Share
+                    </a>
+                    <a href="mailto:?subject={{ event.title|urlencode }}&body={{ request.url|urlencode }}" class="share-btn email">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <aside class="event-sidebar">
+            <div class="event-info-card">
+                <h3>Event Information</h3>
+                <ul>
+                    <li>
+                        <i class="far fa-calendar"></i>
+                        <div>
+                            <strong>Date</strong>
+                            <span>{{ event.date.strftime('%B %d, %Y') }}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <div>
+                            <strong>Time</strong>
+                            <span>{{ event.date.strftime('%I:%M %p') }}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <span>{{ event.location }}</span>
+                        </div>
+                    </li>
+                    {% if event.organizer %}
+                    <li>
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <strong>Organizer</strong>
+                            <span>{{ event.organizer }}</span>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            {% if event.google_maps_link %}
+            <div class="event-map">
+                <iframe
+                    src="{{ event.google_maps_link }}"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            {% endif %}
+        </aside>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add to Calendar functionality could be added here
+    // You might want to use a library like add-to-calendar-button
+    // or implement your own solution
+});
+</script>
+{% endblock %} 

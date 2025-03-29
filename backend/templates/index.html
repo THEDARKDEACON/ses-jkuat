@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}SES JKUAT - Society of Engineering Students{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}')">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="gradient-text">Welcome to SES JKUAT</h1>
+            <p>Empowering Future Engineers at Jomo Kenyatta University of Agriculture and Technology</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('register') }}" class="primary-button">Join SES JKUAT</a>
+                <a href="{{ url_for('about') }}" class="secondary-button">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="number">1000+</span>
+                    <span class="label">Active Members</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="number">8</span>
+                    <span class="label">Departments</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                    <span class="number">30+</span>
+                    <span class="label">Years of Excellence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About SES JKUAT</h2>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <p>The Society of Engineering Students (SES) JKUAT Chapter is a vibrant community of aspiring engineers at Jomo Kenyatta University of Agriculture and Technology. Founded in 1994, we've been dedicated to bridging the gap between academic theory and practical engineering applications.</p>
+                <div class="about-grid">
+                    <div class="about-item" data-aos="zoom-in">
+                        <img src="{{ url_for('static', filename='images/about/mission.jpg') }}" alt="Our Mission">
+                        <h3>Our Mission</h3>
+                        <p>To foster professional development, leadership skills, and technical expertise among engineering students through practical experiences, networking, and community service.</p>
+                    </div>
+                    <div class="about-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="{{ url_for('static', filename='images/about/vision.jpg') }}" alt="Our Vision">
+                        <h3>Our Vision</h3>
+                        <p>To be the leading engineering student society in East Africa, producing well-rounded engineers who are ready to solve global challenges through innovation and sustainable solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="features">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">What We Offer</h2>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <img src="{{ url_for('static', filename='images/features/academic.jpg') }}" alt="Academic Excellence">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Academic Excellence</h3>
+                <p>Peer tutoring, technical workshops, and industry expert sessions</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="{{ url_for('static', filename='images/features/networking.jpg') }}" alt="Networking">
+                <i class="fas fa-users"></i>
+                <h3>Networking</h3>
+                <p>Connect with industry professionals and fellow engineering students</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="{{ url_for('static', filename='images/features/practical.jpg') }}" alt="Practical Skills">
+                <i class="fas fa-tools"></i>
+                <h3>Practical Skills</h3>
+                <p>Hands-on projects, competitions, and technical challenges</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <img src="{{ url_for('static', filename='images/features/leadership.jpg') }}" alt="Leadership">
+                <i class="fas fa-handshake"></i>
+                <h3>Leadership</h3>
+                <p>Opportunities to lead projects and organize events</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="events" class="events">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Upcoming Events</h2>
+        <div class="events-grid">
+            {% for event in events %}
+            <div class="event-card" data-aos="fade-up">
+                <div class="event-image">
+                    <img src="{{ event.image_url }}" alt="{{ event.title }}">
+                    <div class="event-date">
+                        <span class="day">{{ event.date.strftime('%d') }}</span>
+                        <span class="month">{{ event.date.strftime('%b') }}</span>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description[:150] }}...</p>
+                    <a href="{{ url_for('event_detail', id=event.id) }}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="center-button" data-aos="fade-up">
+            <a href="{{ url_for('events') }}" class="primary-button">View All Events</a>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="team">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Leadership</h2>
+        <div class="team-grid">
+            <div class="team-card" data-aos="fade-up">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/team/chairperson.jpg') }}" alt="Chairperson">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>John Doe</h3>
+                    <p class="team-role">Chairperson</p>
+                    <p class="team-dept">Mechanical Engineering</p>
+                </div>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/team/secretary.jpg') }}" alt="Secretary General">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Jane Smith</h3>
+                    <p class="team-role">Secretary General</p>
+                    <p class="team-dept">Electrical Engineering</p>
+                </div>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/team/treasurer.jpg') }}" alt="Treasurer">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>David Kamau</h3>
+                    <p class="team-role">Treasurer</p>
+                    <p class="team-dept">Civil Engineering</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Ready to Shape the Future?</h2>
+            <p>Join SES JKUAT today and be part of a community that's engineering tomorrow's solutions</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('register') }}" class="primary-button">Become a Member</a>
+                <a href="{{ url_for('contact') }}" class="secondary-button">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add any page-specific JavaScript here
+</script>
+{% endblock %} 

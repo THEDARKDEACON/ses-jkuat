@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SES JKUAT Admin Dashboard - Manage club content and activities">
+    <meta name="keywords" content="SES JKUAT, admin dashboard, content management, engineering students">
+    <meta name="author" content="SES JKUAT">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <title>Admin Dashboard | SES JKUAT</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="SES JKUAT Logo" class="logo">
+                <h2>SES JKUAT Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News & Updates</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="#"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Dashboard</h1>
+                <div class="user-info">
+                    <img src="../assets/images/admin-avatar.jpg" alt="Admin">
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Total Members</h3>
+                    <div class="number">500+</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Events</h3>
+                    <div class="number">12</div>
+                </div>
+                <div class="stat-card">
+                    <h3>News Posts</h3>
+                    <div class="number">25</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Gallery Items</h3>
+                    <div class="number">150</div>
+                </div>
+            </div>
+
+            <section class="recent-content">
+                <h2>Recent Content</h2>
+                <div class="content-grid">
+                    <article class="content-card" data-id="1">
+                        <img src="../assets/images/blog/featured1.jpg" alt="Annual Tournament">
+                        <div class="content-card-body">
+                            <h3>Annual Sports Tournament 2024</h3>
+                            <p>Join us for our biggest sporting event of the year...</p>
+                            <div class="content-card-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="content-card" data-id="2">
+                        <img src="../assets/images/blog/featured2.jpg" alt="New Facilities">
+                        <div class="content-card-body">
+                            <h3>New Fitness Center Opening</h3>
+                            <p>We're excited to announce the opening of our state-of-the-art fitness center...</p>
+                            <div class="content-card-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="content-card" data-id="3">
+                        <img src="../assets/images/blog/post1.jpg" alt="Member Spotlight">
+                        <div class="content-card-body">
+                            <h3>Member Spotlight: Sarah Johnson</h3>
+                            <p>Meet Sarah, a dedicated member who has transformed her life...</p>
+                            <div class="content-card-actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html> 

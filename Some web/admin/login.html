@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SES JKUAT Admin Login - Access the Society of Engineering Students management system">
+    <meta name="keywords" content="SES JKUAT, admin login, engineering students, JKUAT">
+    <meta name="author" content="SES JKUAT">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <title>Admin Login | SES JKUAT</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-login">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="../assets/images/logo.png" alt="SES JKUAT Logo" class="login-logo">
+                <h1>SES JKUAT Admin</h1>
+                <p>Society of Engineering Students</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group remember-me">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn primary">Login</button>
+                <div class="login-footer">
+                    <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Website</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html> 
